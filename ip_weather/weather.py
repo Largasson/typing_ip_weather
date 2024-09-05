@@ -11,6 +11,8 @@ text = 'test text for scv'
 
 """Еще одна строчка"""
 
+"""Опять строчка"""
+
 def main():
     ip = get_ip()
     coordinates = get_coordinates(ip)
