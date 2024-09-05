@@ -7,6 +7,8 @@ text = 'test text for scv'
 
 """Вносим изменения для тестирования SCV"""
 
+"""Продолжаем вносить изменения"""
+
 def main():
     ip = get_ip()
     coordinates = get_coordinates(ip)
