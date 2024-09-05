@@ -5,6 +5,11 @@ from weather_formatter import format_weather
 
 text = 'test text for scv'
 
+"""Вносим изменения для тестирования SCV"""
+
+"""Продолжаем вносить изменения"""
+
+"""Еще одна строчка"""
 
 def main():
     ip = get_ip()
