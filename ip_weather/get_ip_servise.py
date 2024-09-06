@@ -1,10 +1,9 @@
 from exceptions import IPServiceError
-
 import http.client
 
 
 def get_ip() -> str:
-    """Get ip from external servise"""
+    """Get ip from external service"""
     try:
         conn = http.client.HTTPConnection("ifconfig.me")
         conn.request("GET", "/ip")
