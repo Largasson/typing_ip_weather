@@ -1,8 +1,11 @@
 from coordinates import get_coordinates
 from get_ip_service import get_ip
+from logging import getLogger, basicConfig, DEBUG
 from weather_api_service import get_weather
 from weather_formatter import format_weather
 
+logger = getLogger()
+basicConfig()
 
 def main():
     print("Запуск программы")
