@@ -1,14 +1,20 @@
 from exceptions import IPServiceError
+from logging import getLogger
 import http.client
+
+logger = getLogger(__name__)
 
 
 def get_ip() -> str:
     """Get ip from external service"""
     try:
-        print("Запрос IP адреса модулем '_get_ip_service'")
+        logger.info(f"Запуск модуля {__name__}")
+        logger.info("Запрос IP адреса...")
         conn = http.client.HTTPConnection("ifconfig.me")
         conn.request("GET", "/ip")
-        return conn.getresponse().read().decode()
+        ip = conn.getresponse().read().decode()
+        logger.info(f"Данные получены, IP адрес: {ip}")
+        return ip
     except Exception:
         raise IPServiceError
 

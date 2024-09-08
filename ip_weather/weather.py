@@ -4,17 +4,18 @@ from logging import getLogger, basicConfig, DEBUG
 from weather_api_service import get_weather
 from weather_formatter import format_weather
 
-logger = getLogger()
-basicConfig()
+FORMAT = '%(asctime)s : %(name)s : %(levelname)s : %(message)s'
+logger = getLogger("Weather")
+basicConfig(level=DEBUG, format=FORMAT)
+
 
 def main():
-    print("Запуск программы")
+    logger.info("Запуск программы")
     ip = get_ip()
     coordinates = get_coordinates(ip)
-    print(f"Координаты:{coordinates.latitude},{coordinates.longitude}")
     weather = get_weather(coordinates)
     format_weather(weather)
-    print("Окончание работы программы")
+    logger.info("Окончание работы программы")
 
 
 if __name__ == "__main__":
