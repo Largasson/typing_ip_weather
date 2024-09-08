@@ -1,16 +1,21 @@
 from coordinates import get_coordinates
 from get_ip_service import get_ip
-from logging import getLogger, basicConfig, DEBUG
+from logging import getLogger, basicConfig, DEBUG, ERROR, FileHandler, StreamHandler
 from weather_api_service import get_weather
 from weather_formatter import format_weather
 
-FORMAT = '%(asctime)s : %(name)s : %(levelname)s : %(message)s'
 logger = getLogger("Weather")
-basicConfig(level=DEBUG, format=FORMAT)
+FORMAT = '%(asctime)s : %(name)s : %(levelname)s : %(message)s'
+file_handler = FileHandler("data.log", 'w', encoding='utf-8')
+file_handler.setLevel(DEBUG)
+console = StreamHandler()
+console.setLevel(ERROR)
+basicConfig(level=DEBUG, format=FORMAT, handlers=[file_handler, console])
+
 
 
 def main():
-    logger.info("Запуск программы")
+    logger.error("Запуск программы")
     ip = get_ip()
     coordinates = get_coordinates(ip)
     weather = get_weather(coordinates)
